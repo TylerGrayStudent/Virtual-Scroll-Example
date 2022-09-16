@@ -1,0 +1,18 @@
+<mat-list #people>
+  <cdk-virtual-scroll-viewport itemSize="50" class="viewport">
+    <mat-list-item
+      *cdkVirtualFor="let e of dataSource; let i = index"
+      class="item"
+      class="item"
+      [disabled]="!e"
+    >
+      <div style="width: 100%" *ngIf="!e">
+        <span class="skeleton-box" style="width: 30%"></span>
+      </div>
+      <div style="width: 100%" *ngIf="e">
+        <div>#{{ i + 1 }} {{ e.name }}</div>
+      </div>
+    </mat-list-item>
+    <h3 *ngIf="!dataSource.hasData()">No data to display</h3>
+  </cdk-virtual-scroll-viewport>
+</mat-list>
